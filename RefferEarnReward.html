@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e69b9b;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            max-width: 100px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px); /* Adjusting for padding and border */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .message-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            overflow: auto;
+            max-height: 300px; /* Maximum height for scrollbar */
+            text-align: left;
+        }
+
+        .message-box img {
+            max-width: 100%;
+            max-height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin-right: 10px;
+        }
+
+        .referral-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Cool Website Logo" class="logo">
+        <h1>Cool Website</h1>
+        <div class="button-container">
+            <button class="referral-button" onclick="location.href='https://angel-one.onelink.me/Wjgr/66zt6vha';">Referral Link - Reward: ₹100</button>
+            <button class="contact-button" onclick="location.href='https://link.upstox.com/WaMH';">Referral Link - Reward: ₹50</button>
+        </div>
+        <p>Referral Link - Reward: ₹100</p>
+        <form id="contact-form">
+            <label for="number">Your Number:</label>
+            <input type="text" id="number" name="number" required>
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="message-box" id="message-box">
+            <!-- Message will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var number = document.getElementById("number").value;
+            var photo = document.getElementById("photo").files[0];
+            var messageBox = document.getElementById("message-box");
+            var message = "<p>Your Number: " + number + "</p>";
+            if (photo) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var img = document.createElement('img');
+                    img.src = reader.result;
+                    messageBox.appendChild(img);
+                };
+                reader.readAsDataURL(photo);
+            }
+            messageBox.innerHTML += message;
+        });
+    </script>
+</body>
+</html>
